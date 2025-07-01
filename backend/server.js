@@ -4,6 +4,8 @@ import { connectDB } from "./config/db.js"
 import foodRouter from "./routers/foodRoute.js"
 import userRouter from "./routers/userRoute.js"
 import 'dotenv/config'
+import cartRouter from "./routers/cartRoute.js"
+import orderRouter from "./routers/orderRoute.js"
 
 
 
@@ -22,6 +24,8 @@ connectDB();
 app.use("/api/food",foodRouter)
 app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
+app.use("/api/cart",cartRouter)
+app.use("/api/order",orderRouter)
 
 app.get("/",(req,res)=>{
     res.send("API Working")
